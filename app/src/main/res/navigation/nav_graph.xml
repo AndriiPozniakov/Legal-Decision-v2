@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+    <fragment
+        android:id="@+id/articlesListFragment"
+        android:name="com.hazymoonstudio.legaldecision.ui.articles_list.ArticlesListFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_articlesListFragment_to_articleDetailedFragment"
+            app:destination="@id/articleDetailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailedFragment"
+        android:name="com.hazymoonstudio.legaldecision.ui.article_detailed.ArticleDetailedFragment"
+        android:label="Detailed" >
+        <argument
+            android:name="article_id"
+            app:argType="string"
+            android:defaultValue="article_id" />
+    </fragment>
+    <fragment
+        android:id="@+id/articlesSavedFragment"
+        android:name="com.hazymoonstudio.legaldecision.ui.articles_saved.ArticlesSavedFragment"
+        android:label="ArticlesSavedFragment" >
+        <action
+            android:id="@+id/action_articlesSavedFragment_to_articleDetailedFragment"
+            app:destination="@id/articleDetailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articlesFavoriteFragment"
+        android:name="com.hazymoonstudio.legaldecision.ui.articles_favorite.ArticlesFavoriteFragment"
+        android:label="ArticlesFavoriteFragment" >
+        <action
+            android:id="@+id/action_articlesFavoriteFragment_to_articleDetailedFragment"
+            app:destination="@id/articleDetailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.hazymoonstudio.legaldecision.ui.authentication.AuthenticationFragment"
+        android:label="AuthenticationFragment" >
+        <action
+            android:id="@+id/action_authenticationFragment_to_articlesListFragment"
+            app:destination="@id/articlesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.hazymoonstudio.legaldecision.ui.splash_screen.SplashScreenFragment"
+        android:label="SplashScreenFragment">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_authenticationFragment"
+            app:destination="@id/authenticationFragment"
+            app:popUpTo="@id/nav_graph"
+            app:launchSingleTop="true"/>
+        <action
+            android:id="@+id/action_splashScreenFragment_to_articlesListFragment"
+            app:destination="@id/articlesListFragment"
+            app:popUpTo="@id/nav_graph"
+            app:launchSingleTop="true"/>
+    </fragment>
+</navigation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/articlesListFragment"
+        android:icon="@drawable/ic_outline_home"
+        android:title="Item 1" />
+
+    <item
+        android:id="@+id/articlesFavoriteFragment"
+        android:icon="@drawable/ic_baseline_favorite_border"
+        android:title="Item 2" />
+
+    <item
+        android:id="@+id/articlesSavedFragment"
+        android:icon="@drawable/ic_outline_bookmarks"
+        android:title="Item 3" />
+</menu>

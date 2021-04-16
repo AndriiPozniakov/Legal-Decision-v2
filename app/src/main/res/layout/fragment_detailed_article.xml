@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userInfo"
+            type="com.hazymoonstudio.legaldecision.models.ArticleUserInfo" />
+
+        <variable
+            name="article"
+            type="com.hazymoonstudio.legaldecision.models.Article" />
+
+        <variable
+            name="click"
+            type="com.hazymoonstudio.legaldecision.ui.article_detailed.ArticleDetailedClickHandler" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_round_arrow_back">
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/content_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/margin_normal"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/content_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/margin_normal"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{article.title}"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:textSize="@dimen/article_title_detailed_size"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toStartOf="@id/content_end"
+                    app:layout_constraintStart_toStartOf="@id/content_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Мы часто принимаем систему мер как должное!" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="25 мая 2012"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/article_status_detailed_size"
+                    app:layout_constraintStart_toStartOf="@id/content_start"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <View
+                    android:id="@+id/circle_divider_date_and_time"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    app:layout_constraintTop_toTopOf="@id/date"
+                    app:layout_constraintBottom_toBottomOf="@id/date"
+                    app:layout_constraintStart_toEndOf="@id/date"
+                    android:background="@drawable/ic_circle" />
+
+                <TextView
+                    android:id="@+id/read_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="5 мин."
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/article_status_detailed_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/date"
+
+                    app:layout_constraintStart_toEndOf="@id/circle_divider_date_and_time" />
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/test_image"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/title_section_bottom_barrier"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="title, image, date, read_time, circle_divider_date_and_time" />
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:fontFamily="@font/open_sans"
+                    android:text="@{article.text}"
+                    android:textSize="@dimen/article_text_detailed_size"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:lineSpacingExtra="10dp"
+                    app:layout_constraintEnd_toStartOf="@id/content_end"
+                    app:layout_constraintStart_toStartOf="@id/content_start"
+                    app:layout_constraintTop_toBottomOf="@id/title_section_bottom_barrier" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

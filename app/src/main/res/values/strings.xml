@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Legal Decision</string>
+
+    <string name="btn_skip_text">Пропустить</string>
+    <string name="views">Просмотров:</string>
+    <string name="ic_search_title">Поиск</string>
+</resources>

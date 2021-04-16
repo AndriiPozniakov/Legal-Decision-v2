@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "427284670007",
+    "project_id": "hazymoonstudio-legal-decision",
+    "storage_bucket": "hazymoonstudio-legal-decision.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427284670007:android:dd218b45d986f504e8c1b2",
+        "android_client_info": {
+          "package_name": "com.hazymoonstudio.legaldecision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427284670007-qumljtnj7b83rauoqtlod3ork20m30d0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hazymoonstudio.legaldecision",
+            "certificate_hash": "bb3256d58c00cece7f692e07c21d19aed64f6741"
+          }
+        },
+        {
+          "client_id": "427284670007-l2qhjmn2hub43c6i4s7tt5554m2du86h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANnSQf0xQMunTkzzu5kV8JLsUuSR2fJQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427284670007-l2qhjmn2hub43c6i4s7tt5554m2du86h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
