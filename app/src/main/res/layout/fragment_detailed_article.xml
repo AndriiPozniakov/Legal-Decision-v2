@@ -83,7 +83,7 @@
                     android:id="@+id/title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@{article.title}"
+
                     android:fontFamily="@font/playfair_display_bold"
                     android:textSize="@dimen/article_title_detailed_size"
                     android:textColor="@color/colorPrimaryDark"
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_normal"
                     android:fontFamily="@font/open_sans"
-                    android:text="@{article.text}"
+
                     android:textSize="@dimen/article_text_detailed_size"
                     android:textColor="@color/colorPrimaryDark"
                     android:lineSpacingExtra="10dp"

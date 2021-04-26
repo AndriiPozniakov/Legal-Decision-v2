@@ -47,9 +47,12 @@ class FirebaseInject {
             ) { snapshot ->
                 var article = Article()
 
-               article.articleId = snapshot.id
-               article.title = snapshot.getString("title").toString()
-               article.text = HtmlCompat.fromHtml(snapshot.getString("text").toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+                article.articleId = snapshot.id
+                snapshot.toObject(Article::class.java)?.let {
+                    article = it
+                }
+//               article.title = snapshot.getString("title").toString()
+//               article.text = HtmlCompat.fromHtml(snapshot.getString("text").toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
 
                 article
             }

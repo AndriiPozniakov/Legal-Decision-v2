@@ -43,8 +43,8 @@ class CloudFireStoreDataSource @Inject constructor(private val mDataBase: Fireba
         var article = Article()
 
         article.articleId = data.id
-        article.title = data.getString("title").toString()
-        article.text = HtmlCompat.fromHtml(data.getString("text").toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+//        article.title = data.getString("title").toString()
+//        article.text = HtmlCompat.fromHtml(data.getString("text").toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
 
         return article
     }
