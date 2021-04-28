@@ -2,11 +2,11 @@ package com.hazymoonstudio.legaldecision.network
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hazymoonstudio.legaldecision.network.model.ArticleDto
-import com.hazymoonstudio.legaldecision.temp.ArticleUserInfo
+import com.hazymoonstudio.legaldecision.network.model.ArticleUserInfo
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class CloudFireStoreService @Inject constructor(private val mDataBase: FirebaseFirestore) {
+class ArticleService @Inject constructor(private val mDataBase: FirebaseFirestore) {
     suspend fun getArticlesList(): List<ArticleDto> {
         val articlesList: MutableList<ArticleDto> = ArrayList()
         val data = mDataBase.collection(UKRAINIAN_LAWS_TABLE).get().await()

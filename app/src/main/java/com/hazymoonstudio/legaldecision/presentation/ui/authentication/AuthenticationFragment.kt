@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.authentication
+package com.hazymoonstudio.legaldecision.presentation.ui.authentication
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,25 +1,25 @@
-package com.hazymoonstudio.legaldecision.presentation.article_detailed
+package com.hazymoonstudio.legaldecision.presentation.ui.article_detailed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.hazymoonstudio.legaldecision.data.RepositoryDataSource
-import com.hazymoonstudio.legaldecision.models.Article
-import com.hazymoonstudio.legaldecision.models.ArticleUserInfo
+import com.hazymoonstudio.legaldecision.domain.Article
+import com.hazymoonstudio.legaldecision.network.model.ArticleUserInfo
+import com.hazymoonstudio.legaldecision.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ArticleDetailedViewModel @Inject constructor(private val mDataSource: RepositoryDataSource, private val mAuth: FirebaseAuth) : ViewModel() {
+class ArticleDetailedViewModel @Inject constructor(private val articleRepository: ArticleRepository, private val mAuth: FirebaseAuth) : ViewModel() {
     private val mArticle: MutableLiveData<Article> = MutableLiveData()
     private val mArticleUserInfo: MutableLiveData<ArticleUserInfo> = MutableLiveData()
 
     fun getArticle(articleId: String): LiveData<Article> {
         viewModelScope.launch {
-            mArticle.value = mDataSource.getArticle(articleId)
+            mArticle.value = articleRepository.getArticle(articleId)
         }
 
         return mArticle
@@ -31,7 +31,7 @@ class ArticleDetailedViewModel @Inject constructor(private val mDataSource: Repo
         if(user != null) {
             val userUid = user.uid
             viewModelScope.launch {
-                mArticleUserInfo.value = mDataSource.getUserInfoAboutArticle(userUid, articleId)
+                mArticleUserInfo.value = articleRepository.getUserInfoAboutArticle(userUid, articleId)
             }
         }
 
@@ -45,7 +45,7 @@ class ArticleDetailedViewModel @Inject constructor(private val mDataSource: Repo
         if(user != null) {
             val userUid = user.uid
             viewModelScope.launch {
-                mDataSource.updateUserInfoAboutArticle(userUid, articleId, documentInfo)
+                articleRepository.updateUserInfoAboutArticle(userUid, articleId, documentInfo)
             }
         }
     }
