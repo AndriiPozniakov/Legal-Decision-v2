@@ -26,7 +26,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun providesArticleRepository(fireStore: FirebaseFirestore): ArticleService = ArticleService(mDataBase = fireStore)
+    fun providesArticleService(fireStore: FirebaseFirestore): ArticleService = ArticleService(mDataBase = fireStore)
 
     @Singleton
     @Provides

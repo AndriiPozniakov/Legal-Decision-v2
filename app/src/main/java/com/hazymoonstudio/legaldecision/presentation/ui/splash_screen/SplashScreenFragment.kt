@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.splash_screen
+package com.hazymoonstudio.legaldecision.presentation.ui.splash_screen
 
 import android.os.Bundle
 import android.os.Handler
@@ -25,7 +25,7 @@ class SplashScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_splash_screen, container, false)
+        val view = inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
         hideNavigation()
 

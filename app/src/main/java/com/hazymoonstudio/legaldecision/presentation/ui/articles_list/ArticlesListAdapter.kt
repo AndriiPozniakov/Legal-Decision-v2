@@ -1,44 +1,30 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_list
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_list
 
-import android.util.Log
 import android.view.ViewGroup
-import com.firebase.ui.firestore.paging.FirestorePagingAdapter
-import com.firebase.ui.firestore.paging.FirestorePagingOptions
-import com.firebase.ui.firestore.paging.LoadingState
-import com.hazymoonstudio.legaldecision.models.Article
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
+import com.hazymoonstudio.legaldecision.domain.model.Article
 import javax.inject.Inject
 
-class ArticlesListAdapter @Inject constructor(options: FirestorePagingOptions<Article>): FirestorePagingAdapter<Article, ArticlesListViewHolder>(options) {
-    private val TAG = "Legal Decision"
+class ArticlesListAdapter @Inject constructor(): PagedListAdapter<Article, ArticlesListViewHolder>(ArticleDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesListViewHolder {
         return ArticlesListViewHolder.create(parent)
     }
 
-    override fun onBindViewHolder(holder: ArticlesListViewHolder, position: Int, article: Article) {
-        holder.bind(article)
+    override fun onBindViewHolder(holder: ArticlesListViewHolder, position: Int) {
+        getItem(position)?.let { holder.bind(it) }
     }
 
-    override fun onLoadingStateChanged(state: LoadingState) {
-        when (state) {
-            LoadingState.LOADING_INITIAL -> {
-                Log.i(TAG, "Load Initial")
+    companion object {
+        val ArticleDiffCallback = object : DiffUtil.ItemCallback<Article>() {
+            override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem.articleId == newItem.articleId
             }
 
-            LoadingState.LOADING_MORE -> {
-                Log.i(TAG, "LOADING_MORE")
-            }
-
-            LoadingState.LOADED -> {
-                Log.i(TAG, "LOADED")
-            }
-
-            LoadingState.ERROR -> {
-                Log.i(TAG, "ERROR")
-            }
-
-            LoadingState.FINISHED -> {
-                Log.i(TAG, "FINISHED")
+            override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem.title == newItem.title
+                        && oldItem.components == newItem.components
             }
         }
     }

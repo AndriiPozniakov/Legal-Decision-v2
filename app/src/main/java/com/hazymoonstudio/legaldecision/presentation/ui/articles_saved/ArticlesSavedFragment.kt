@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_saved
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_saved
 
 import android.os.Bundle
 import android.view.LayoutInflater

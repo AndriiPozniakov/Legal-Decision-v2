@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_list
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_list
 
 import android.view.View
 

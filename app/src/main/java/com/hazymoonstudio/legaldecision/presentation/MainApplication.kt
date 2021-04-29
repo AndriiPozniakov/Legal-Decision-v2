@@ -1,13 +1,7 @@
-package com.hazymoonstudio.legaldecision
+package com.hazymoonstudio.legaldecision.presentation
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import android.content.pm.PackageManager
-import android.telephony.TelephonyManager
-import androidx.core.app.ActivityCompat
-import com.hazymoonstudio.legaldecision.models.PhoneNumberState
 import dagger.hilt.android.HiltAndroidApp
 
 

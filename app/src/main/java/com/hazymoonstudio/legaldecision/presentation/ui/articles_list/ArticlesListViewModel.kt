@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_list
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_list
 
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
@@ -11,10 +11,10 @@ import kotlinx.coroutines.cancel
 import javax.inject.Inject
 
 @HiltViewModel
-class ArticlesListViewModel @Inject constructor(private val articleRepository: ArticleRepository) : ViewModel() {
+class ArticlesListViewModel @Inject constructor(articleRepository: ArticleRepository) : ViewModel() {
     private val ioScope = CoroutineScope(Dispatchers.Default)
-    private val userDataSource = ArticlesDataSourceFactory(repository = articleRepository, scope = ioScope)
-    val articles = LivePagedListBuilder(userDataSource, pagedListConfig()).build()
+    private val articleDataSource = ArticlesDataSourceFactory(repository = articleRepository, scope = ioScope)
+    val articles = LivePagedListBuilder(articleDataSource, pagedListConfig()).build()
 
     private fun pagedListConfig() = PagedList.Config.Builder()
         .setInitialLoadSizeHint(10)

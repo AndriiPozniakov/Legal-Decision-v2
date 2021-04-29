@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.article_detailed
+package com.hazymoonstudio.legaldecision.presentation.ui.article_detailed
 
 class ArticleViewHolder {
 }

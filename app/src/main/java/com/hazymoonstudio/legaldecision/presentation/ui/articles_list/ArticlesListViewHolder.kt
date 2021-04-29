@@ -1,20 +1,20 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_list
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_list
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.hazymoonstudio.legaldecision.databinding.ItemArticleListBinding
-import com.hazymoonstudio.legaldecision.models.Article
+import com.hazymoonstudio.legaldecision.domain.model.Article
 
-class ArticlesListViewHolder(private val mBinding: ItemArticleListBinding) : RecyclerView.ViewHolder(mBinding.root) {
+class ArticlesListViewHolder(private val itemBinding: ItemArticleListBinding) : RecyclerView.ViewHolder(itemBinding.root) {
     fun bind(article: Article) {
-        //article.text = MyTextUtils.getSafeSubstringWords(article.text, 20) + "..."
-        mBinding.article = article
-        mBinding.executePendingBindings()
-        mBinding.click = object : ArticlesClickHandler {
+        itemBinding.article = article
+        itemBinding.executePendingBindings()
+        itemBinding.click = object : ArticlesClickHandler {
             override fun onArticleClick(view: View) {
-                mBinding.root.findNavController().navigate(ArticlesListFragmentDirections.actionArticlesListFragmentToArticleDetailedFragment(article.articleId))
+                itemBinding.root.findNavController().navigate(ArticlesListFragmentDirections.actionArticlesListFragmentToArticleDetailedFragment(article.articleId))
             }
         }
     }

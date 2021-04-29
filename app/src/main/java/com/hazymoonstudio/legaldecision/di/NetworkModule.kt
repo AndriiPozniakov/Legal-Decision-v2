@@ -1,10 +1,7 @@
 package com.hazymoonstudio.legaldecision.di
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.hazymoonstudio.legaldecision.network.ArticleService
 import com.hazymoonstudio.legaldecision.network.model.ArticleDtoMapper
-import com.hazymoonstudio.legaldecision.repository.ArticleRepository
+import com.hazymoonstudio.legaldecision.network.model.ComponentDtoMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,8 +14,14 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRecipeMapper(): ArticleDtoMapper {
-        return ArticleDtoMapper()
+    fun provideComponentMapper(): ComponentDtoMapper {
+        return ComponentDtoMapper()
+    }
+
+    @Singleton
+    @Provides
+    fun provideArticleMapper(mapper: ComponentDtoMapper): ArticleDtoMapper {
+        return ArticleDtoMapper(mapper)
     }
 
 //    @Provides

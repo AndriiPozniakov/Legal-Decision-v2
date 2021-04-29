@@ -7,11 +7,11 @@
 
         <variable
             name="article"
-            type="com.hazymoonstudio.legaldecision.models.Article" />
+            type="com.hazymoonstudio.legaldecision.domain.model.Article" />
 
         <variable
             name="click"
-            type="com.hazymoonstudio.legaldecision.ui.articles_list.ArticlesClickHandler" />
+            type="com.hazymoonstudio.legaldecision.presentation.ui.articles_list.ArticlesClickHandler" />
 
     </data>
 
@@ -53,7 +53,7 @@
             android:fontFamily="@font/playfair_display_bold"
 
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/article_title_size"
+            android:textSize="@dimen/text_size_big"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@id/image"
             app:layout_constraintHorizontal_bias="0"
@@ -72,7 +72,7 @@
             android:fontFamily="@font/open_sans"
             android:maxLength="100"
 
-            android:textSize="@dimen/article_text_size"
+            android:textSize="@dimen/text_size_normal"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@id/image"
             app:layout_constraintHorizontal_bias="0"
@@ -97,7 +97,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="25 мая 2012"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/article_status_size"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintStart_toStartOf="@+id/content_start"
 
             app:layout_constraintTop_toBottomOf="@id/title_section_bottom_barrier" />
@@ -120,7 +120,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="5 мин."
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/article_status_size"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintBaseline_toBaselineOf="@id/date"
 
             app:layout_constraintStart_toEndOf="@id/circle_divider_date_and_time" />
@@ -132,7 +132,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="267"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/article_status_size"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintBaseline_toBaselineOf="@id/date"
 
             app:layout_constraintEnd_toStartOf="@id/content_end" />
@@ -145,7 +145,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="@string/views"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/article_status_size"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintBaseline_toBaselineOf="@id/date"
             app:layout_constraintEnd_toStartOf="@id/views_count" />
 

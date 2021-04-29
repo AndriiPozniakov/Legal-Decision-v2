@@ -5,17 +5,17 @@
 
     <data>
 
-        <variable
-            name="userInfo"
-            type="com.hazymoonstudio.legaldecision.models.ArticleUserInfo" />
+<!--        <variable-->
+<!--            name="userInfo"-->
+<!--            type="com.hazymoonstudio.legaldecision.models.ArticleUserInfo" />-->
 
         <variable
             name="article"
-            type="com.hazymoonstudio.legaldecision.models.Article" />
+            type="com.hazymoonstudio.legaldecision.domain.model.Article" />
 
         <variable
             name="click"
-            type="com.hazymoonstudio.legaldecision.ui.article_detailed.ArticleDetailedClickHandler" />
+            type="com.hazymoonstudio.legaldecision.presentation.ui.article_detailed.ArticleDetailedClickHandler" />
 
     </data>
 
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
 
                     android:fontFamily="@font/playfair_display_bold"
-                    android:textSize="@dimen/article_title_detailed_size"
+                    android:textSize="@dimen/text_size_big"
                     android:textColor="@color/colorPrimaryDark"
                     app:layout_constraintEnd_toStartOf="@id/content_end"
                     app:layout_constraintStart_toStartOf="@id/content_start"
@@ -100,7 +100,7 @@
                     android:fontFamily="@font/playfair_display_bold"
                     android:text="25 мая 2012"
                     android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/article_status_detailed_size"
+                    android:textSize="@dimen/text_size_small"
                     app:layout_constraintStart_toStartOf="@id/content_start"
                     app:layout_constraintTop_toBottomOf="@id/title" />
 
@@ -122,7 +122,7 @@
                     android:fontFamily="@font/playfair_display_bold"
                     android:text="5 мин."
                     android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/article_status_detailed_size"
+                    android:textSize="@dimen/text_size_small"
                     app:layout_constraintBaseline_toBaselineOf="@id/date"
 
                     app:layout_constraintStart_toEndOf="@id/circle_divider_date_and_time" />
@@ -152,7 +152,7 @@
                     android:layout_marginTop="@dimen/margin_normal"
                     android:fontFamily="@font/open_sans"
 
-                    android:textSize="@dimen/article_text_detailed_size"
+                    android:textSize="@dimen/text_size_small"
                     android:textColor="@color/colorPrimaryDark"
                     android:lineSpacingExtra="10dp"
                     app:layout_constraintEnd_toStartOf="@id/content_end"

@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_favorite
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater

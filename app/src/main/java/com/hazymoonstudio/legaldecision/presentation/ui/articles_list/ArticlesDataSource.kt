@@ -1,12 +1,12 @@
-package com.hazymoonstudio.legaldecision.presentation.articles_list
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_list
 
 import androidx.paging.PositionalDataSource
-import com.hazymoonstudio.legaldecision.data.RepositoryDataSource
-import com.hazymoonstudio.legaldecision.models.Article
+import com.hazymoonstudio.legaldecision.domain.model.Article
+import com.hazymoonstudio.legaldecision.repository.ArticleRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-class ArticlesDataSource(private val repository: RepositoryDataSource, private val scope: CoroutineScope) : PositionalDataSource<Article>() {
+class ArticlesDataSource(private val repository: ArticleRepository, private val scope: CoroutineScope) : PositionalDataSource<Article>() {
     private var mTotalCount: Int = 0
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Article>) {
@@ -23,9 +23,8 @@ class ArticlesDataSource(private val repository: RepositoryDataSource, private v
 
     private fun executeQuery(loadSize: Int, callback:(List<Article>) -> Unit) {
         scope.launch() {
-            val articles = repository.getArticleListFromPositionWithLimit(mTotalCount, loadSize)
-            //Log.i("ArticlesDataSource", "StartPos: $mTotalCount, LoadSize: $loadSize")
-            mTotalCount += loadSize
+            val articles = repository.getArticlesList(loadSize)
+            mTotalCount += articles.size
             callback(articles)
         }
     }

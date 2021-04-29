@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.hazymoonstudio.legaldecision.domain.Article
+import com.hazymoonstudio.legaldecision.domain.model.Article
 import com.hazymoonstudio.legaldecision.network.model.ArticleUserInfo
 import com.hazymoonstudio.legaldecision.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,7 +31,7 @@ class ArticleDetailedViewModel @Inject constructor(private val articleRepository
         if(user != null) {
             val userUid = user.uid
             viewModelScope.launch {
-                mArticleUserInfo.value = articleRepository.getUserInfoAboutArticle(userUid, articleId)
+//                mArticleUserInfo.value = articleRepository.getUserInfoAboutArticle(userUid, articleId)
             }
         }
 
@@ -45,7 +45,7 @@ class ArticleDetailedViewModel @Inject constructor(private val articleRepository
         if(user != null) {
             val userUid = user.uid
             viewModelScope.launch {
-                articleRepository.updateUserInfoAboutArticle(userUid, articleId, documentInfo)
+//                articleRepository.updateUserInfoAboutArticle(userUid, articleId, documentInfo)
             }
         }
     }
