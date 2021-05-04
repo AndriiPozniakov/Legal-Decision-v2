@@ -8,9 +8,9 @@ import kotlinx.coroutines.CoroutineScope
 class ArticlesDataSourceFactory(
     private val repository: ArticleRepository,
     private val scope: CoroutineScope
-    ): DataSource.Factory<Int, Article>(){
+    ): DataSource.Factory<String, Article>(){
 
-    override fun create(): DataSource<Int, Article> {
+    override fun create(): DataSource<String, Article> {
         return ArticlesDataSource(repository, scope)
     }
 }

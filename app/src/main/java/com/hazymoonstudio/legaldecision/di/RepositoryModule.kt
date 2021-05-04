@@ -5,7 +5,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.hazymoonstudio.legaldecision.network.ArticleService
 import com.hazymoonstudio.legaldecision.network.model.ArticleDtoMapper
 import com.hazymoonstudio.legaldecision.repository.ArticleRepository
-import com.hazymoonstudio.legaldecision.repository.ArticleRepository_Impl
+import com.hazymoonstudio.legaldecision.repository.ArticleRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,7 +32,7 @@ object RepositoryModule {
     @Provides
     fun providesArticleRepository(articleService: ArticleService, articleMapper: ArticleDtoMapper):
             ArticleRepository {
-        return ArticleRepository_Impl(
+        return ArticleRepositoryImpl(
             articleService = articleService,
             mapper = articleMapper
         )

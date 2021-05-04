@@ -24,7 +24,7 @@ class ArticlesListAdapter @Inject constructor(): PagedListAdapter<Article, Artic
 
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 return oldItem.title == newItem.title
-                        && oldItem.components == newItem.components
+//                        && oldItem.components == newItem.components
             }
         }
     }

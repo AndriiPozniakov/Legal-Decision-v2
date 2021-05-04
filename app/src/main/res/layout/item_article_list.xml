@@ -51,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_small"
             android:fontFamily="@font/playfair_display_bold"
-
+            android:text="@{article.title}"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text_size_big"
+            android:textSize="@dimen/text_size_normal"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@id/image"
             app:layout_constraintHorizontal_bias="0"
@@ -70,9 +70,8 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:fontFamily="@font/open_sans"
-            android:maxLength="100"
-
-            android:textSize="@dimen/text_size_normal"
+            android:text="@{article.text}"
+            android:textSize="@dimen/text_size_small"
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@id/image"
             app:layout_constraintHorizontal_bias="0"
@@ -97,7 +96,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="25 мая 2012"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="@dimen/text_size_extra_small"
             app:layout_constraintStart_toStartOf="@+id/content_start"
 
             app:layout_constraintTop_toBottomOf="@id/title_section_bottom_barrier" />
@@ -120,7 +119,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="5 мин."
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="@dimen/text_size_extra_small"
             app:layout_constraintBaseline_toBaselineOf="@id/date"
 
             app:layout_constraintStart_toEndOf="@id/circle_divider_date_and_time" />
@@ -132,7 +131,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="267"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="@dimen/text_size_extra_small"
             app:layout_constraintBaseline_toBaselineOf="@id/date"
 
             app:layout_constraintEnd_toStartOf="@id/content_end" />
@@ -145,7 +144,7 @@
             android:fontFamily="@font/playfair_display_bold"
             android:text="@string/views"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_small"
+            android:textSize="@dimen/text_size_extra_small"
             app:layout_constraintBaseline_toBaselineOf="@id/date"
             app:layout_constraintEnd_toStartOf="@id/views_count" />
 

@@ -1,26 +1,34 @@
 package com.hazymoonstudio.legaldecision.network
 
-import android.util.Log
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.hazymoonstudio.legaldecision.network.model.ArticleDto
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class ArticleService @Inject constructor(private val mDataBase: FirebaseFirestore) {
-    private lateinit var lastArticle: DocumentSnapshot
+    suspend fun getArticle(id: String): ArticleDto {
+        val data = mDataBase.collection(UKRAINIAN_LAWS_TABLE).document(id).get().await()
+        val article = ArticleDto()
+        article.articleId = data.id
+        return article
+    }
 
-    suspend fun getArticlesList(loadSize: Int): List<ArticleDto> {
+    suspend fun getFirstArticles(loadSize: Int): List<ArticleDto> {
+        return getArticlesFromQuery(data = getFirstArticlesQuery(loadSize = loadSize))
+    }
+
+    suspend fun getNextArticles(loadSize: Int, lastArticleId: String): List<ArticleDto> {
+        return getArticlesFromQuery(data = getNextArticlesQuery(loadSize = loadSize, lastArticleId = lastArticleId))
+    }
+
+    private fun getArticlesFromQuery(data: QuerySnapshot): List<ArticleDto> {
         val articlesList: MutableList<ArticleDto> = ArrayList()
-        val data = mDataBase.collection(UKRAINIAN_LAWS_TABLE)
-            .orderBy("title")
-//            .startAt(lastArticle)
-            .limit(loadSize.toLong())
-            .get()
-            .await()
 
         for(document in data){
-            var temp = document.toObject(ArticleDto::class.java)
+            val temp = document.toObject(ArticleDto::class.java)
             temp.articleId = document.id
 
             articlesList.add(temp)
@@ -29,16 +37,21 @@ class ArticleService @Inject constructor(private val mDataBase: FirebaseFirestor
         return articlesList
     }
 
-    suspend fun getArticle(ArticleDtoId: String): ArticleDto {
-        val data = mDataBase.collection(UKRAINIAN_LAWS_TABLE).document(ArticleDtoId).get().await()
+    private suspend fun getFirstArticlesQuery(loadSize: Int): QuerySnapshot {
+        return mDataBase.collection(UKRAINIAN_LAWS_TABLE)
+                .orderBy(FieldPath.documentId())
+                .limit(loadSize.toLong())
+                .get()
+                .await()
+    }
 
-        var article = ArticleDto()
-
-        article.articleId = data.id
-//        ArticleDto.title = data.getString("title").toString()
-//        ArticleDto.text = HtmlCompat.fromHtml(data.getString("text").toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
-
-        return article
+    private suspend fun getNextArticlesQuery(loadSize: Int, lastArticleId: String): QuerySnapshot {
+        return mDataBase.collection(UKRAINIAN_LAWS_TABLE)
+                .orderBy(FieldPath.documentId())
+                .startAfter(lastArticleId)
+                .limit(loadSize.toLong())
+                .get()
+                .await()
     }
 
 //    suspend fun getArticleListFromPositionWithLimit(start: Int, limit: Int): List<ArticleDto> {
@@ -74,6 +87,9 @@ class ArticleService @Inject constructor(private val mDataBase: FirebaseFirestor
         const val UKRAINIAN_LAWS_TABLE = "UkrainianLaws"
         const val USERS_TABLE = "Users"
 
-        const val USER_INFO_ABOUT_ArticleDto = "UserInfo"
+        const val USER_INFO_ABOUT_ARTICLE = "UserInfo"
+
+        //Fields
+        const val ARTICLE_TABLE_DATE_FIELD = "title"
     }
 }
