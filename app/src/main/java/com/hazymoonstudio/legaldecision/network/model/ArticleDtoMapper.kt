@@ -10,6 +10,7 @@ class ArticleDtoMapper @Inject constructor(private val componentMapper: Componen
             articleId = model.articleId,
             title = model.title,
             text = model.text,
+            imgUrl = model.imgUrl,
             components = componentMapper.toDomainList(model.components)
         )
     }
@@ -19,6 +20,7 @@ class ArticleDtoMapper @Inject constructor(private val componentMapper: Componen
             articleId = domainModel.articleId,
             title = domainModel.title,
             text = domainModel.text,
+            imgUrl = domainModel.imgUrl,
             components = componentMapper.fromDomainList(domainModel.components)
         )
     }

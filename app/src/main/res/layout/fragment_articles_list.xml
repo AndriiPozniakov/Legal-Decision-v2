@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="?attr/colorSecondary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleEnabled="false">
 
@@ -25,10 +25,22 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:title="Home"
-                app:navigationIcon="@drawable/ic_round_menu"
-                app:menu="@menu/menu_toolbar_articles_list">
+                app:layout_collapseMode="pin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/text_size_normal"
+                        android:fontFamily="@font/mont_bold"
+                        android:text="Главная страница"
+                        android:gravity="center"/>
+
+                </LinearLayout>
 
             </androidx.appcompat.widget.Toolbar>
 

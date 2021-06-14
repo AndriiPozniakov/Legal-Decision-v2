@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="component"
+            type="com.hazymoonstudio.legaldecision.domain.model.Component" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/content_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/margin_normal"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/content_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/margin_normal"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:text="@{component.text}"
+            style="@style/StyleTitle"
+            app:layout_constraintEnd_toStartOf="@id/content_end"
+            app:layout_constraintStart_toStartOf="@id/content_start"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Это subtitle, дружчек!!!" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subTitle"
+            android:text="@{component.subText}"
+            style="@style/StyleSubTitle"
+            app:layout_constraintEnd_toStartOf="@id/content_end"
+            app:layout_constraintStart_toStartOf="@id/content_start"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Это subtitle, дружчек!!!" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

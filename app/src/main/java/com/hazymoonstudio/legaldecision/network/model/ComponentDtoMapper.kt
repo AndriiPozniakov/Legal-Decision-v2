@@ -9,17 +9,16 @@ class ComponentDtoMapper : DomainMapper<ComponentDto, Component> {
         return Component(
             type = ComponentType.create(model.type),
             text = model.text,
-            date = model.date,
-            time = model.time
+            subText = model.subText,
         )
     }
 
     override fun mapFromDomainModel(domainModel: Component): ComponentDto {
         return ComponentDto(
-            type = domainModel.type.type,
+            type = domainModel.type.id,
             text = domainModel.text,
-            date = domainModel.date,
-            time = domainModel.time
+            subText = domainModel.subText,
+
         )
     }
 

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.hazymoonstudio.legaldecision.domain.model.Article" />
+
+        <variable
+            name="click"
+            type="com.hazymoonstudio.legaldecision.presentation.ui.articles_list.ArticlesClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:onClick="@{click.onArticleClick}">
+
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/content_start"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintGuide_begin="@dimen/margin_normal"/>-->
+
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/content_end"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintGuide_end="@dimen/margin_normal"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/image"-->
+<!--            android:layout_width="75dp"-->
+<!--            android:layout_height="75dp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/content_end"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/test_image"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="@dimen/margin_small"-->
+<!--            android:fontFamily="@font/playfair_display_bold"-->
+<!--            android:text="@{article.title}"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:textSize="@dimen/text_size_normal"-->
+<!--            app:layout_constrainedWidth="true"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/image"-->
+<!--            app:layout_constraintHorizontal_bias="0"-->
+<!--            app:layout_constraintStart_toStartOf="@id/content_start"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_goneMarginEnd="0dp"-->
+
+<!--            tools:text="Мы часто принимаем систему мер как должное!" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/description"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/margin_small"-->
+<!--            android:layout_marginEnd="@dimen/margin_small"-->
+<!--            android:fontFamily="@font/open_sans"-->
+<!--            android:text="@{article.text}"-->
+<!--            android:textSize="@dimen/text_size_small"-->
+<!--            app:layout_constrainedWidth="true"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/image"-->
+<!--            app:layout_constraintHorizontal_bias="0"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/content_start"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/title"-->
+<!--            app:layout_goneMarginEnd="0dp"-->
+
+<!--            tools:text="Давно выяснено, что при оценке дизайна и композиции читаемый..." />-->
+
+<!--        <androidx.constraintlayout.widget.Barrier-->
+<!--            android:id="@+id/title_section_bottom_barrier"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:barrierDirection="bottom"-->
+<!--            app:constraint_referenced_ids="title, image, description" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/date"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/margin_big"-->
+<!--            android:fontFamily="@font/playfair_display_bold"-->
+<!--            android:text="25 мая 2012"-->
+<!--            android:textColor="@color/colorPrimaryVariant"-->
+<!--            android:textSize="@dimen/text_size_extra_small"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/content_start"-->
+
+<!--            app:layout_constraintTop_toBottomOf="@id/title_section_bottom_barrier" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/circle_divider_date_and_time"-->
+<!--            android:layout_width="3dp"-->
+<!--            android:layout_height="3dp"-->
+<!--            android:layout_marginStart="@dimen/margin_small"-->
+<!--            app:layout_constraintTop_toTopOf="@id/date"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/date"-->
+<!--            app:layout_constraintStart_toEndOf="@id/date"-->
+<!--            android:background="@drawable/ic_circle" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/read_time"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/margin_small"-->
+<!--            android:fontFamily="@font/playfair_display_bold"-->
+<!--            android:text="5 мин."-->
+<!--            android:textColor="@color/colorPrimaryVariant"-->
+<!--            android:textSize="@dimen/text_size_extra_small"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@id/date"-->
+
+<!--            app:layout_constraintStart_toEndOf="@id/circle_divider_date_and_time" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/views_count"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/playfair_display_bold"-->
+<!--            android:text="267"-->
+<!--            android:textColor="@color/colorPrimaryVariant"-->
+<!--            android:textSize="@dimen/text_size_extra_small"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@id/date"-->
+
+<!--            app:layout_constraintEnd_toStartOf="@id/content_end" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/views_count_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="@dimen/margin_extra_small"-->
+<!--            android:fontFamily="@font/playfair_display_bold"-->
+<!--            android:text="@string/views"-->
+<!--            android:textColor="@color/colorPrimaryVariant"-->
+<!--            android:textSize="@dimen/text_size_extra_small"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@id/date"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/views_count" />-->
+
+<!--        <androidx.constraintlayout.widget.Barrier-->
+<!--            android:id="@+id/status_section_bottom_barrier"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:barrierDirection="bottom"-->
+<!--            app:constraint_referenced_ids="date, circle_divider_date_and_time, read_time, views_count, views_count_title" />-->
+
+<!--        <View-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginTop="@dimen/margin_big"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/status_section_bottom_barrier"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:background="@color/colorAccentLight" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

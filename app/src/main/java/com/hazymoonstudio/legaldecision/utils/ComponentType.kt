@@ -1,6 +1,6 @@
 package com.hazymoonstudio.legaldecision.utils
 
-enum class ComponentType(val type: Int) {
+enum class ComponentType(val id: Int) {
     TEXT(0), TITLE(1), TITLE_AND_SUBTITLE(2), IMG(3);
 
     companion object {

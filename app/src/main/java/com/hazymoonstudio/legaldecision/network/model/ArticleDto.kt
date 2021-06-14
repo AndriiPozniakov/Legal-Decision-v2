@@ -5,5 +5,6 @@ data class ArticleDto(
         var articleId: String = "",
         var title: String = "",
         var text: String = "",
+        var imgUrl: String = "",
         var components: List<ComponentDto> = ArrayList()
 )

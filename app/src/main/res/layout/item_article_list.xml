@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -15,155 +16,134 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_normal"
-        android:onClick="@{click.onArticleClick}">
+        android:layout_height="185dp"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_big"
+        android:onClick="@{click.onArticleClick}"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/content_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/margin_normal"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/content_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/margin_normal"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/card_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/test_image"
+                android:tint="@color/colorOpacityFilterBlack"/>
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            app:layout_constraintEnd_toEndOf="@id/content_end"
-            app:layout_constraintTop_toTopOf="parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/test_image"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/content_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/margin_big"/>
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_small"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="@{article.title}"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text_size_normal"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toStartOf="@id/image"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@id/content_start"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_goneMarginEnd="0dp"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/content_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/margin_big"/>
 
-            tools:text="Мы часто принимаем систему мер как должное!" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/content_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/margin_big"/>
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
-            android:layout_marginEnd="@dimen/margin_small"
-            android:fontFamily="@font/open_sans"
-            android:text="@{article.text}"
-            android:textSize="@dimen/text_size_small"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toStartOf="@id/image"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@+id/content_start"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:layout_goneMarginEnd="0dp"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/card_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{article.title}"
+                style="@style/StyleCardTitle"
+                app:layout_constraintBottom_toTopOf="@id/card_description"
+                app:layout_constraintStart_toStartOf="@id/content_start"
+                app:layout_constraintEnd_toEndOf="@id/content_end"
+                android:layout_marginBottom="@dimen/margin_small"
+                tools:text="Революция принесла ветер перемен и в эту сферу и создала разрыв."/>
 
-            tools:text="Давно выяснено, что при оценке дизайна и композиции читаемый..." />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/card_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{article.text}"
+                android:lines="2"
+                style="@style/StyleCardText"
+                app:layout_constraintBottom_toTopOf="@id/status_bar"
+                app:layout_constraintStart_toStartOf="@id/content_start"
+                app:layout_constraintEnd_toEndOf="@id/content_end"
+                android:layout_marginBottom="@dimen/margin_normal"
+                tools:text="Давно выяснено, что при оценке дизайна и композиции читаемый..."/>
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/title_section_bottom_barrier"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="title, image, description" />
+            <LinearLayout
+                android:id="@+id/status_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="@id/content_start"
+                app:layout_constraintEnd_toEndOf="@id/content_end"
+                app:layout_constraintBottom_toBottomOf="@id/content_bottom">
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_big"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="25 мая 2012"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_extra_small"
-            app:layout_constraintStart_toStartOf="@+id/content_start"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ic_calendar"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar_regular" />
 
-            app:layout_constraintTop_toBottomOf="@id/title_section_bottom_barrier" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/card_text_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StyleCardText"
+                    android:layout_marginStart="@dimen/margin_extra_small"
+                    android:text="08 мая 2020"/>
 
-        <View
-            android:id="@+id/circle_divider_date_and_time"
-            android:layout_width="3dp"
-            android:layout_height="3dp"
-            android:layout_marginStart="@dimen/margin_small"
-            app:layout_constraintTop_toTopOf="@id/date"
-            app:layout_constraintBottom_toBottomOf="@id/date"
-            app:layout_constraintStart_toEndOf="@id/date"
-            android:background="@drawable/ic_circle" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ic_time"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_time_regular"
+                    android:layout_marginStart="@dimen/margin_normal"/>
 
-        <TextView
-            android:id="@+id/read_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="5 мин."
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_extra_small"
-            app:layout_constraintBaseline_toBaselineOf="@id/date"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/card_text_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StyleCardText"
+                    android:layout_marginStart="@dimen/margin_extra_small"
+                    android:text="15 мин."/>
 
-            app:layout_constraintStart_toEndOf="@id/circle_divider_date_and_time" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ic_view"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_view_regular"
+                    android:layout_marginStart="@dimen/margin_normal"/>
 
-        <TextView
-            android:id="@+id/views_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="267"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_extra_small"
-            app:layout_constraintBaseline_toBaselineOf="@id/date"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/card_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/StyleCardText"
+                    android:layout_marginStart="@dimen/margin_extra_small"
+                    android:text="253"/>
 
-            app:layout_constraintEnd_toStartOf="@id/content_end" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/views_count_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_extra_small"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="@string/views"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_extra_small"
-            app:layout_constraintBaseline_toBaselineOf="@id/date"
-            app:layout_constraintEnd_toStartOf="@id/views_count" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/status_section_bottom_barrier"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="date, circle_divider_date_and_time, read_time, views_count, views_count_title" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/margin_big"
-            app:layout_constraintTop_toBottomOf="@id/status_section_bottom_barrier"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/colorAccentLight" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

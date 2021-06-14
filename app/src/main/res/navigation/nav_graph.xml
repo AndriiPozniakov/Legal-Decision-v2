@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/articlesListFragment"
         android:name="com.hazymoonstudio.legaldecision.presentation.ui.articles_list.ArticlesListFragment"
-        android:label="Home" >
+        android:label="Home">
         <action
             android:id="@+id/action_articlesListFragment_to_articleDetailedFragment"
             app:destination="@id/articleDetailedFragment" />

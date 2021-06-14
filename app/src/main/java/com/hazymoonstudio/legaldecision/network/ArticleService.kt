@@ -11,8 +11,12 @@ import javax.inject.Inject
 class ArticleService @Inject constructor(private val mDataBase: FirebaseFirestore) {
     suspend fun getArticle(id: String): ArticleDto {
         val data = mDataBase.collection(UKRAINIAN_LAWS_TABLE).document(id).get().await()
-        val article = ArticleDto()
-        article.articleId = data.id
+        var article = ArticleDto()
+        data.toObject(ArticleDto::class.java)?.let {
+            article = it
+            article.articleId = it.articleId
+        }
+
         return article
     }
 
