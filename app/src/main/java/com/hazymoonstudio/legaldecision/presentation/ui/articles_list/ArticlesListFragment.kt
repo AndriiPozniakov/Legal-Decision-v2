@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_single_fragment.*
 import kotlinx.android.synthetic.main.fragment_articles_list.view.*
 import javax.inject.Inject
 
-
 @AndroidEntryPoint
 class ArticlesListFragment : Fragment() {
     private val mViewModel: ArticlesListViewModel by viewModels()
@@ -38,5 +37,11 @@ class ArticlesListFragment : Fragment() {
         }
 
         return  view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.shimmer_view_container.startShimmerAnimation()
     }
 }

@@ -8,6 +8,7 @@
 
     <!--Card-->
     <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_height">185dp</dimen>
 
     <!--Fonts Size-->
     <dimen name="text_size_big">22sp</dimen>

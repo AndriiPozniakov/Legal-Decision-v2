@@ -24,4 +24,6 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorOpacityFilterBlack">#66000000</color>
+
+    <color name="color_placeholder_background">#dddddd</color>
 </resources>
