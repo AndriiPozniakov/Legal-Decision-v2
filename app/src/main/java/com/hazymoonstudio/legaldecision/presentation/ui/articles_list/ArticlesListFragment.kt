@@ -42,6 +42,6 @@ class ArticlesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.shimmer_view_container.startShimmerAnimation()
+        view.shimmer_view_container.startShimmer()
     }
 }
