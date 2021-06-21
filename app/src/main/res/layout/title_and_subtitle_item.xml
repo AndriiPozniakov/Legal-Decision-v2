@@ -36,7 +36,7 @@
             android:id="@+id/title"
             android:text="@{component.text}"
             style="@style/StyleTitle"
-            app:layout_constraintEnd_toStartOf="@id/content_end"
+            app:layout_constraintEnd_toEndOf="@id/content_end"
             app:layout_constraintStart_toStartOf="@id/content_start"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Это subtitle, дружчек!!!" />
@@ -45,7 +45,7 @@
             android:id="@+id/subTitle"
             android:text="@{component.subText}"
             style="@style/StyleSubTitle"
-            app:layout_constraintEnd_toStartOf="@id/content_end"
+            app:layout_constraintEnd_toEndOf="@id/content_end"
             app:layout_constraintStart_toStartOf="@id/content_start"
             app:layout_constraintTop_toBottomOf="@id/title"
             tools:text="Это subtitle, дружчек!!!" />
