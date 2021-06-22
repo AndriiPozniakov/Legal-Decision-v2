@@ -36,8 +36,6 @@ class ArticlesListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_articles_list, container, false)
 
-//        sharedElementReturnTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.no_transition)
-
         view.articles_list.adapter = mAdapter
         view.articles_list.layoutManager = LinearLayoutManager(requireContext())
 
@@ -47,19 +45,13 @@ class ArticlesListFragment : Fragment() {
             view.shimmer_view_container.visibility = View.GONE
         }
 
-        mAuth.signOut()
+//        mAuth.signOut()
 
         return  view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         view.shimmer_view_container.startShimmer()
-//        postponeEnterTransition()
-//        view.articles_list.doOnPreDraw {
-//            startPostponedEnterTransition()
-//        }
     }
 }

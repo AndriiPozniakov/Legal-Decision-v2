@@ -47,4 +47,9 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="StyleButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorBlack</item>
+        <item name="fontFamily">@font/mont_regular</item>
+    </style>
+    
 </resources>

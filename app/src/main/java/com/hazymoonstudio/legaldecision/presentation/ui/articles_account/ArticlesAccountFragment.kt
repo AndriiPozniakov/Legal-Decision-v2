@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.ui.articles_saved
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_account
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class ArticlesSavedFragment : Fragment() {
+class ArticlesAccountFragment : Fragment() {
 //    private val mViewModel: ArticlesListViewModel by viewModels()
 //    private val  mAdapter = ArticlesListAdapter()
 
@@ -22,7 +22,7 @@ class ArticlesSavedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_articles_saved, container, false)
+        var view = inflater.inflate(R.layout.fragment_articles_account, container, false)
 
 //        view.articlesList.adapter = mAdapter
 //        view.articlesList.layoutManager = LinearLayoutManager(activity)

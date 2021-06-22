@@ -10,6 +10,12 @@
         <action
             android:id="@+id/action_articlesListFragment_to_articleDetailedFragment"
             app:destination="@id/articleDetailedFragment" />
+        <action
+            android:id="@+id/action_articlesListFragment_to_articlesFavoriteFragment"
+            app:destination="@id/articlesFavoriteFragment" />
+        <action
+            android:id="@+id/action_articlesListFragment_to_articlesSavedFragment"
+            app:destination="@id/articlesSavedFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleDetailedFragment"
@@ -25,20 +31,20 @@
             android:defaultValue='""' />
     </fragment>
     <fragment
-        android:id="@+id/articlesSavedFragment"
-        android:name="com.hazymoonstudio.legaldecision.presentation.ui.articles_saved.ArticlesSavedFragment"
+        android:id="@+id/articlesAccountFragment"
+        android:name="com.hazymoonstudio.legaldecision.presentation.ui.articles_account.ArticlesAccountFragment"
         android:label="ArticlesSavedFragment" >
         <action
-            android:id="@+id/action_articlesSavedFragment_to_articleDetailedFragment"
-            app:destination="@id/articleDetailedFragment" />
+            android:id="@+id/action_articlesSavedFragment_to_articlesListFragment"
+            app:destination="@id/articlesListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/articlesFavoriteFragment"
-        android:name="com.hazymoonstudio.legaldecision.presentation.ui.articles_favorite.ArticlesFavoriteFragment"
+        android:id="@+id/articlesBookmarkFragment"
+        android:name="com.hazymoonstudio.legaldecision.presentation.ui.articles_bookmark.ArticlesBookmarkFragment"
         android:label="ArticlesFavoriteFragment" >
         <action
-            android:id="@+id/action_articlesFavoriteFragment_to_articleDetailedFragment"
-            app:destination="@id/articleDetailedFragment" />
+            android:id="@+id/action_articlesFavoriteFragment_to_articlesListFragment"
+            app:destination="@id/articlesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/authenticationFragment"

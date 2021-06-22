@@ -6,4 +6,14 @@
     <string name="ic_search_title">Поиск</string>
 
     <string name="main_list_title">Популярные</string>
+
+    <string name="sign_in_btn_text">Войти используя Google</string>
+
+    <string name="text_hello">Привет!</string>
+    <string name="text_gritting">Если возникли проблемы в правовом поле, мы вам поможем!</string>
+    <string name="text_tagline">#твойличныйюриствкармане</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_bookmark">Bookmark</string>
+    <string name="menu_account">Account</string>
 </resources>

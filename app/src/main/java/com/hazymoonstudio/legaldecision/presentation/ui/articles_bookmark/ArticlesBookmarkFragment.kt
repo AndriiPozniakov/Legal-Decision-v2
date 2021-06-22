@@ -1,4 +1,4 @@
-package com.hazymoonstudio.legaldecision.presentation.ui.articles_favorite
+package com.hazymoonstudio.legaldecision.presentation.ui.articles_bookmark
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class ArticlesFavoriteFragment : Fragment() {
+class ArticlesBookmarkFragment : Fragment() {
 //    private val mViewModel: ArticlesListViewModel by viewModels()
 //    private val  mAdapter = ArticlesListAdapter()
 
@@ -22,7 +22,7 @@ class ArticlesFavoriteFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_articles_favorite, container, false)
+        var view = inflater.inflate(R.layout.fragment_articles_bookmark, container, false)
 
 //        view.articlesList.adapter = mAdapter
 //        view.articlesList.layoutManager = LinearLayoutManager(activity)
